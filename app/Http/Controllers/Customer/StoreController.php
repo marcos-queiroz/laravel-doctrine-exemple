@@ -27,6 +27,15 @@ class StoreController extends Controller
 
         $customer = ($this->store)($data);
 
-        return new CustomerResource($customer);
+        if ($customer) {
+            return response()->json([
+                'message' => 'Customer registered successfully',
+                'customers' => new CustomerResource($customer),
+            ], 201);
+        }
+
+        return response()->json([
+            'message' => 'Failed to register customer. Please check your input data and try again.'
+        ], 422);
     }
 }

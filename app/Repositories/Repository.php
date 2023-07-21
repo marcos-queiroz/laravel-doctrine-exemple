@@ -45,7 +45,7 @@ class Repository extends EntityRepository
         $entity = $this->findById($id);
 
         if (!$entity) {
-            throw new \Exception('Entidade não encontrada.');
+            return false;
         }
 
         $entity = $this->setEntityData($entity, $data);
@@ -60,7 +60,7 @@ class Repository extends EntityRepository
         $entity = $this->findById($id);
 
         if (!$entity) {
-            throw new \Exception('Entidade não encontrada.');
+            return false;
         }
 
         $this->entityManager->remove($entity);
