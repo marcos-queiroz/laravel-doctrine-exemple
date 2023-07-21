@@ -5,6 +5,7 @@ use App\Http\Controllers\Customer\IndexController;
 use App\Http\Controllers\Customer\ShowController;
 use App\Http\Controllers\Customer\StoreController;
 use App\Http\Controllers\Customer\UpdateController;
+use App\Http\Controllers\User\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+Route::post('register', RegisterController::class);
 
 Route::get('customers', IndexController::class);
 Route::post('customers', StoreController::class);

@@ -2,25 +2,34 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Actions\User\Register;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\RegisterRequest;
-use App\Repositories\UserRepository;
 
 class RegisterController extends Controller
 {
-    protected $userRepository;
+    protected Register $register;
 
-    public function __construct(UserRepository $userRepository)
+    public function __construct(Register $register)
     {
-        $this->userRepository = $userRepository;
+        $this->register = $register;
     }
 
     public function __invoke(RegisterRequest $request)
     {
         $data = $request->validated();
 
-        $user = $this->userRepository->create($data);
+        $register = ($this->register)($data);
 
-        return response()->json(['message' => 'User registered successfully'], 201);
+        if ($register) {
+            return response()->json([
+                'message' => 'User registered successfully',
+                'user' => $register,
+            ], 201);
+        }
+
+        return response()->json([
+            'message' => 'Failed to register user. Please check your input data and try again.'
+        ], 422);
     }
 }
