@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Cliente;
+namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Actions\Cliente\Store;
-use App\Http\Requests\Cliente\CreateRequest;
-use App\Http\Resources\ClienteResource;
+use App\Actions\Customer\Store;
+use App\Http\Requests\Customer\CreateRequest;
+use App\Http\Resources\CustomerResource;
 
 class StoreController extends Controller
 {
     /**
-     * @var \App\Actions\Cliente\Store
+     * @var \App\Actions\Customer\Store
      */
     private Store $store;
 
@@ -25,8 +25,8 @@ class StoreController extends Controller
     {
         $data = $request->validated();
 
-        $cliente = ($this->store)($data);
+        $customer = ($this->store)($data);
 
-        return new ClienteResource($cliente);
+        return new CustomerResource($customer);
     }
 }

@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Cliente;
+namespace App\Http\Controllers\Customer;
 
-namespace App\Http\Controllers\Cliente;
+namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Actions\Cliente\Update;
-use App\Http\Requests\Cliente\UpdateRequest;
-use App\Http\Resources\ClienteResource;
+use App\Actions\Customer\Update;
+use App\Http\Requests\Customer\UpdateRequest;
+use App\Http\Resources\CustomerResource;
 
 class UpdateController extends Controller
 {
@@ -26,9 +26,9 @@ class UpdateController extends Controller
         $cliente = ($this->update)($id, $data);
 
         if (empty($cliente)) {
-            return response()->json(['message' => 'Cliente não encontrado.'], 404);
+            return response()->json(['message' => 'Client not found.'], 404);
         }
 
-        return new ClienteResource($cliente);
+        return new CustomerResource($cliente);
     }
 }

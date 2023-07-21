@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\Cliente\DestroyController;
-use App\Http\Controllers\Cliente\IndexController;
-use App\Http\Controllers\Cliente\ShowController;
-use App\Http\Controllers\Cliente\StoreController;
-use App\Http\Controllers\Cliente\UpdateController;
+use App\Http\Controllers\Customer\DestroyController;
+use App\Http\Controllers\Customer\IndexController;
+use App\Http\Controllers\Customer\ShowController;
+use App\Http\Controllers\Customer\StoreController;
+use App\Http\Controllers\Customer\UpdateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,8 +24,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('clientes', IndexController::class);
-Route::post('clientes', StoreController::class);
-Route::get('clientes/{id}', ShowController::class);
-Route::put('clientes/{id}', UpdateController::class);
-Route::delete('clientes/{id}', DestroyController::class);
+Route::get('customers', IndexController::class);
+Route::post('customers', StoreController::class);
+Route::get('customers/{id}', ShowController::class);
+Route::put('customers/{id}', UpdateController::class);
+Route::delete('customers/{id}', DestroyController::class);

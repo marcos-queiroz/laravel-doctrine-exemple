@@ -2,12 +2,12 @@
 
 namespace App\Http\Resources;
 
-use App\Entities\Cliente;
+use App\Entities\Customer;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ClienteResource extends JsonResource
+class CustomerResource extends JsonResource
 {
-    public function __construct(Cliente $resource)
+    public function __construct(Customer $resource)
     {
         parent::__construct($resource);
     }

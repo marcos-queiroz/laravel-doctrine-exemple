@@ -2,18 +2,18 @@
 
 namespace App\Entities;
 
-use App\Repositories\ClienteRepository;
+use App\Repositories\CustomerRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ClienteRepository::class, readOnly: false)]
-#[ORM\Table(name: "clientes")]
-class Cliente
+#[ORM\Entity(repositoryClass: CustomerRepository::class, readOnly: false)]
+#[ORM\Table(name: "customers")]
+class Customer
 {
     #[ORM\Id, ORM\Column(type: "integer"), ORM\GeneratedValue()]
     private $id;
 
     #[ORM\Column(type: "string")]
-    private $nome;
+    private $name;
 
     #[ORM\Column(type: "string")]
     private $email;
@@ -25,12 +25,12 @@ class Cliente
 
     public function getNome()
     {
-        return $this->nome;
+        return $this->name;
     }
 
-    public function setNome($nome)
+    public function setName($name)
     {
-        $this->nome = $nome;
+        $this->name = $name;
     }
 
     public function getEmail()

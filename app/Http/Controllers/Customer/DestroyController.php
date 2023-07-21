@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Cliente;
+namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
-use App\Actions\Cliente\Destroy;
+use App\Actions\Customer\Destroy;
 
 class DestroyController extends Controller
 {
@@ -19,10 +19,10 @@ class DestroyController extends Controller
         $success = ($this->destroy)($id);
 
         if (!$success) {
-            return response()->json(['message' => 'Cliente não encontrado.'], 404);
+            return response()->json(['message' => 'Client not found.'], 404);
         }
 
-        return response()->json(['message' => 'Cliente excluído com sucesso.']);
+        return response()->json(['message' => 'Customer deleted successfully.']);
     }
 }
 

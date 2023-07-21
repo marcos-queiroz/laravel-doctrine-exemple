@@ -2,13 +2,13 @@
 
 namespace App\Repositories;
 
-use App\Entities\Cliente;
+use App\Entities\Customer;
 use Doctrine\ORM\EntityManagerInterface;
 
-class ClienteRepository extends Repository
+class CustomerRepository extends Repository
 {
     public function __construct(EntityManagerInterface $entityManager)
     {
-        parent::__construct($entityManager, Cliente::class);
+        parent::__construct($entityManager, Customer::class);
     }
 }

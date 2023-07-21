@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Cliente;
+namespace App\Http\Requests\Customer;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
+class CreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,11 +23,9 @@ class UpdateRequest extends FormRequest
      */
     public function rules()
     {
-        $id = $this->route('id');
-
         return [
-            'nome' => 'required|string|max:255',
-            'email' => "required|email|unique:App\Entities\Cliente,email,{$id}",
+            'name' => 'required|string',
+            'email' => 'required|email|unique:App\Entities\Customer,email',
         ];
     }
 }
