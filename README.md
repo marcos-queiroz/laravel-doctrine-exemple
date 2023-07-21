@@ -31,10 +31,24 @@ Laravel Doctrine 1.8.x
 ## Installation Steps:
 
 Clone the project from the repository.
-Install dependencies using Composer: composer install.
+Install dependencies using Composer: 
+
+```
+    composer install
+```
+
 Create a new database and configure the database connection in the .env file.
-Run migrations to create the required database tables: php artisan migrate.
-Seed the database with sample data (optional): php artisan db:seed.
+Run migrations to create the required database tables: 
+
+```
+    php artisan migrate
+``` 
+
+Seed the database with sample data (optional):
+
+```
+    php artisan db:seed
+```
 
 ## Usage:
 The project provides several endpoints that demonstrate the usage of Laravel Doctrine features. These endpoints can be accessed through the web browser or API client like Postman.
@@ -42,9 +56,13 @@ The project provides several endpoints that demonstrate the usage of Laravel Doc
 ### Endpoints:
 
 GET /api/customers: Fetches all customers from the database.
+
 GET /api/customers/{id}: Retrieves a specific customer by their ID.
+
 POST /api/customers: Creates a new customer in the database.
+
 PUT /api/customers/{id}: Updates an existing customer.
+
 DELETE /api/customers/{id}: Deletes a customer from the database.
 
 ---
