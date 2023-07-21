@@ -3,6 +3,7 @@
 namespace App\Entities;
 
 use App\Repositories\CustomerRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CustomerRepository::class, readOnly: false)]
@@ -41,5 +42,18 @@ class Customer
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: "users")]
+    private $users;
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
+
+    public function getUsers()
+    {
+        return $this->users;
     }
 }
