@@ -50,6 +50,32 @@ Seed the database with sample data (optional):
     php artisan db:seed
 ```
 
+Just run this command:
+
+```
+    php artisan jwt:secret
+```
+
+Run the commands to give write permission on the 'store' directory
+
+```
+    sudo chmod -R 775 storage
+```
+
+```
+    sudo chgrp -R www-data storage
+```
+
+Run the commands to give write permission on the 'cache' directory
+
+```
+    sudo chmod -R 775 bootstrap/cache
+```
+
+```
+    sudo chgrp -R www-data bootstrap/cache
+```
+
 ## Usage:
 The project provides several endpoints that demonstrate the usage of Laravel Doctrine features. These endpoints can be accessed through the web browser or API client like Postman.
 
