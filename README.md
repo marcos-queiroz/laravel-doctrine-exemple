@@ -55,6 +55,14 @@ The project provides several endpoints that demonstrate the usage of Laravel Doc
 
 ### Endpoints:
 
+POST /api/register: Creates a new user in the database.
+
+POST /api/login: Authenticate user e generate token JWT.
+
+### Endpoints restricted:
+
+GET /api/user: Retrieves a specific user by authenticated.
+
 GET /api/customers: Fetches all customers from the database.
 
 GET /api/customers/{id}: Retrieves a specific customer by their ID.
@@ -65,6 +73,14 @@ PUT /api/customers/{id}: Updates an existing customer.
 
 DELETE /api/customers/{id}: Deletes a customer from the database.
 
+
+## Postman
+
+Use the [Postman](https://raw.githubusercontent.com/marcos-queiroz/laravel-doctrine-exemple/main/test.postman_collection) file to run the tests.
+
+Remember to change the {{base_url}} variable to your context.
+
 ---
 ## Conclusion:
+
 This small project serves as a practical example of how Laravel Doctrine can be integrated into Laravel applications. By using Laravel Doctrine, developers can take advantage of powerful ORM features and better manage database interactions, leading to more efficient and maintainable applications. Feel free to explore the codebase to understand how Laravel Doctrine simplifies database operations and enhances the overall development experience.
