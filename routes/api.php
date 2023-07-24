@@ -21,17 +21,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 
 Route::post('register', RegisterController::class);
-Route::get('login', LoginController::class);
 Route::post('login', LoginController::class);
 
-Route::get('customers', IndexController::class);
-Route::post('customers', StoreController::class);
-Route::get('customers/{id}', ShowController::class);
-Route::put('customers/{id}', UpdateController::class);
-Route::delete('customers/{id}', DestroyController::class);
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    Route::group(['prefix' => 'customers'], function () {
+        Route::get('/', IndexController::class);
+        Route::post('/', StoreController::class);
+        Route::get('/{id}', ShowController::class);
+        Route::put('/{id}', UpdateController::class);
+        Route::delete('/{id}', DestroyController::class);
+    });
+});
