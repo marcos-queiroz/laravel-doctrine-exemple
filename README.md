@@ -23,8 +23,8 @@ Utilizes the Doctrine Entity Manager to persist and update entities.
 
 ### Requirements:
 
-PHP 7.4 or higher
-Laravel 8.x
+PHP 8.1 or higher
+Laravel 9.x
 Laravel Doctrine 1.8.x
 
 
