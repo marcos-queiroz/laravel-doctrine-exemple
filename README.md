@@ -76,7 +76,7 @@ DELETE /api/customers/{id}: Deletes a customer from the database.
 
 ## Postman
 
-Use the [Postman](https://raw.githubusercontent.com/marcos-queiroz/laravel-doctrine-exemple/main/test.postman_collection) file to run the tests.
+Use the [Postman](https://raw.githubusercontent.com/marcos-queiroz/laravel-doctrine-exemple/main/test.postman_collection){:target="_blank" download} file to run the tests.
 
 Remember to change the {{base_url}} variable to your context.
 
