@@ -60,7 +60,7 @@ class Customer
         $this->users = new ArrayCollection();
     }
 
-    public function getUsers(): Collection
+    public function getUsers(): ?Collection
     {
         return $this->users;
     }

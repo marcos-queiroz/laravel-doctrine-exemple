@@ -85,7 +85,7 @@ class User implements AuthenticatableContract, CanResetPasswordContract
         $this->customers = new ArrayCollection();
     }
 
-    public function getCustomers(): Collection
+    public function getCustomers(): ?Collection
     {
         return $this->customers;
     }
