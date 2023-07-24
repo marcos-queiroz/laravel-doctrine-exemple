@@ -21,8 +21,8 @@ class UserRepository
         $user = new User();
         $user->setName($data['name']);
         $user->setEmail($data['email']);
-        $user->setEmailVerified(false); // Setar o email como não verificado por padrão
-        $user->setPassword(bcrypt($data['password']));
+        $user->setEmailVerified(true); // Setar o email como não verificado por padrão
+        $user->setPassword($data['password']);
 
         $this->entityManager->persist($user);
         $this->entityManager->flush();

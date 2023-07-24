@@ -2,6 +2,7 @@
 
 namespace App\Entities;
 
+use App\Repositories\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
