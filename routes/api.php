@@ -6,6 +6,7 @@ use App\Http\Controllers\Customer\ShowController;
 use App\Http\Controllers\Customer\StoreController;
 use App\Http\Controllers\Customer\UpdateController;
 use App\Http\Controllers\User\LoginController;
+use App\Http\Controllers\User\LogoutController;
 use App\Http\Controllers\User\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,9 @@ use Illuminate\Support\Facades\Route;
 Route::post('register', RegisterController::class);
 Route::post('login', LoginController::class);
 
-Route::middleware(['auth:sanctum'])->group(function () {
+Route::middleware(['jwt.auth'])->group(function () {
+    Route::post('logout', LogoutController::class);
+
     Route::get('/user', function (Request $request) {
         return $request->user();
     });

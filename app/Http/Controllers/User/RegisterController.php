@@ -23,8 +23,7 @@ class RegisterController extends Controller
 
         if ($register) {
             return response()->json([
-                'message' => 'User registered successfully',
-                'user' => $register,
+                'message' => 'User registered successfully'
             ], 201);
         }
 

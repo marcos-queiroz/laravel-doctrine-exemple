@@ -4,25 +4,23 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\LoginRequest;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class LoginController extends Controller
 {
     public function __invoke(LoginRequest $request)
     {
-        $user = User::where('email', $request->email)->first();
+        $credentials = $request->validated();
 
-        if (!$user || !Hash::check($request->password, $user->password)) {
+        if (!Auth::attempt($credentials)) {
             throw ValidationException::withMessages([
-                'email' => ['Tehe provided credentials are incorrect']
+                'email' => ['The provided credentials are incorrect']
             ]);
         }
 
-        $user->tokens()->delete();
-
-        $token = $user->createToken('api')->plainTextToken;
+        $token = JWTAuth::fromUser(Auth::user());
 
         return response()->json([
             'message' => 'Authentication successful',

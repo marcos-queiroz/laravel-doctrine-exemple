@@ -196,6 +196,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         LaravelDoctrine\ORM\DoctrineServiceProvider::class,
+
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
     ],
 
     /*
