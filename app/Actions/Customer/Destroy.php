@@ -15,10 +15,6 @@ class Destroy
 
     public function __invoke($id)
     {
-        if (!$this->CustomerRepository->findById($id)) {
-            return false;
-        }
-
         return $this->CustomerRepository->delete($id);
     }
 }

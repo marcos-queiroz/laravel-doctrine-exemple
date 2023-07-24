@@ -4,6 +4,7 @@ namespace App\Entities;
 
 use App\Repositories\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
@@ -84,7 +85,7 @@ class User implements AuthenticatableContract, CanResetPasswordContract
         $this->customers = new ArrayCollection();
     }
 
-    public function getCustomers()
+    public function getCustomers(): Collection
     {
         return $this->customers;
     }

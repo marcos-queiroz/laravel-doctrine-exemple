@@ -15,10 +15,6 @@ class Update
 
     public function __invoke($id, array $data)
     {
-        if (!$this->CustomerRepository->findById($id)) {
-            return false;
-        }
-
         return $this->CustomerRepository->update($id, $data);
     }
 }
